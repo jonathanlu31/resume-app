@@ -5,7 +5,7 @@ const Start = () => {
   return (
     <div>
       <h2>Let's build an awesome resume!</h2>
-      <NavButton to="/ctnt" styling="btn btn-block blue" text="Start" />
+      <NavButton link="/ctnt/" text="Start" />
     </div>
   );
 };
