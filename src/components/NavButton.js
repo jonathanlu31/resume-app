@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import btn from '../styles/NavButton.module.css';
 
-const NavButton = (props) => {
+const NavButton = ({ color, fill, link, text }) => {
   return (
-    <Link className={props.styling} to={props.link}>
-      {props.text}
+    <Link className={`${btn[`${color}_${fill}`]} ${btn.btnBlock}`} to={link}>
+      {text}
     </Link>
   );
 };

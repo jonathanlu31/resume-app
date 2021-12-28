@@ -25,8 +25,10 @@ function App() {
               <>
                 <Header title="Contact Info" content="Please enter your contact info" />
                 <ContactForm />
-                <NavButton text="Back" outline="true" color="blue" link="/" />
-                <NavButton text="Next: Work History" outline="false" color="red" link="/work/" />
+                <div className={layout.coupleSpaced}>
+                  <NavButton text="Back" fill="outline" color="blue" link="/" />
+                  <NavButton text="Next: Work History" fill="block" color="red" link="/work/" />
+                </div>
               </>
             }
           />
@@ -36,8 +38,10 @@ function App() {
               <>
                 <Header title="Work Experience" content="Please enter your relevant work experience" />
                 <WorkForm />
-                <NavButton text="Back" outline="true" color="blue" link="/ctnt/" />
-                <NavButton text="Next: Work History" outline="false" color="red" link="/edu/" />
+                <div className={layout.coupleSpaced}>
+                  <NavButton text="Back" fill="outline" color="blue" link="/ctnt/" />
+                  <NavButton text="Next: Work History" fill="block" color="red" link="/edu/" />
+                </div>
               </>
             }
           />
@@ -47,8 +51,10 @@ function App() {
               <>
                 <Header />
                 <EduForm />
-                <NavButton text="Back" outline="true" color="blue" link="/work/" />
-                <NavButton text="Next: Work History" outline="false" color="red" link="/skills/" />
+                <div className={layout.coupleSpaced}>
+                  <NavButton text="Back" fill="outline" color="blue" link="/work/" />
+                  <NavButton text="Next: Work History" fill="block" color="red" link="/skills/" />
+                </div>
               </>
             }
           />
@@ -58,8 +64,10 @@ function App() {
               <>
                 <Header />
                 <SkillsForm />
-                <NavButton text="Back" outline="true" color="blue" link="/edu/" />
-                <NavButton text="Next: Work History" outline="false" color="red" link="/work/" />
+                <div className={layout.coupleSpaced}>
+                  <NavButton text="Back" fill="outline" color="blue" link="/edu/" />
+                  <NavButton text="Next: Work History" fill="block" color="red" link="/work/" />
+                </div>
               </>
             }
           />
