@@ -40,7 +40,7 @@ function App() {
                 <WorkForm />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/ctnt/" />
-                  <NavButton text="Next: Work History" fill="block" color="red" link="/edu/" />
+                  <NavButton text="Next: Education" fill="block" color="red" link="/edu/" />
                 </div>
               </>
             }
@@ -49,7 +49,7 @@ function App() {
             path="/edu/"
             element={
               <>
-                <Header />
+                <Header title="Education" content="Include your past education, even if you haven't graduated yet." />
                 <EduForm />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/work/" />
