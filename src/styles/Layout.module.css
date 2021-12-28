@@ -6,13 +6,11 @@
   display: flex;
   justify-content: space-between;
   margin-right: 1rem;
+  margin-top: 3rem;
 }
 
 .triple {
   display: flex;
-}
-
-.form {
 }
 
 .mainSection {
@@ -23,4 +21,8 @@
 
 .mb_med {
   margin-bottom: 0.8rem;
+}
+
+.p_relative {
+  position: relative;
 }

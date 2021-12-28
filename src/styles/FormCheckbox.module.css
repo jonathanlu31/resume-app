@@ -1,0 +1,11 @@
+.checkboxGroup {
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.checkboxGroup > input {
+  margin-right: 5px;
+}
