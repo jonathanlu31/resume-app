@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import typography from '../styles/Type.module.css';
 import styles from '../styles/FormField.module.css';
 
-const FormField = ({ label, type, placeholder }) => {
+const FormField = ({ label, type, placeholder, handleChange, name }) => {
+  const [value, setValue] = useState('');
+  const onInputChange = (e) => {
+    setValue(e.target.value);
+    handleChange(name, e.target.value);
+  };
   return (
     <div className={styles.fieldGroup}>
       <label className={typography.labelType}>{label}</label>
-      <input className={styles.inputField} type={type} placeholder={placeholder} />
+      <input onChange={onInputChange} className={styles.inputField} name={name} type={type} placeholder={placeholder} value={value} />
     </div>
   );
 };

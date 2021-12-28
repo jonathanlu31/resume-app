@@ -1,0 +1,21 @@
+.sidebar {
+  background-color: #003d73;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  font-size: 0.8rem;
+  padding-left: 1.25rem;
+  padding-top: 0.5rem;
+}
+
+.sidebarHeader {
+  background-color: #02315c;
+}
+
+.active {
+  width: 80vw;
+  /* height: 80vh; */
+  margin: auto;
+  background-color: white;
+}

@@ -1,4 +1,5 @@
 // import './styles/App.css';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import ContactForm from './components/ContactForm';
@@ -13,6 +14,18 @@ import NavButton from './components/NavButton';
 import layout from './styles/Layout.module.css';
 
 function App() {
+  const [info, setInfo] = useState({
+    fname: 'John',
+    lname: 'Smith',
+    job: 'Underwater basket weaver',
+    phone: '8555555555',
+    email: 'johnsmith@gmail.com',
+  });
+
+  const updateInfo = (feature, data) => {
+    setInfo({ ...info, [feature]: data });
+  };
+
   return (
     <div>
       <Navbar />
@@ -24,7 +37,7 @@ function App() {
             element={
               <>
                 <Header title="Contact Info" content="Please enter your contact info" />
-                <ContactForm />
+                <ContactForm handleChange={updateInfo} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/" />
                   <NavButton text="Next: Work History" fill="block" color="red" link="/work/" />
@@ -37,7 +50,7 @@ function App() {
             element={
               <>
                 <Header title="Work Experience" content="Please enter your relevant work experience" />
-                <WorkForm />
+                <WorkForm handleChange={updateInfo} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/ctnt/" />
                   <NavButton text="Next: Education" fill="block" color="red" link="/edu/" />
@@ -50,10 +63,10 @@ function App() {
             element={
               <>
                 <Header title="Education" content="Include your past education, even if you haven't graduated yet." />
-                <EduForm />
+                <EduForm handleChange={updateInfo} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/work/" />
-                  <NavButton text="Next: Work History" fill="block" color="red" link="/skills/" />
+                  <NavButton text="Next: Skills" fill="block" color="red" link="/skills/" />
                 </div>
               </>
             }
@@ -62,17 +75,17 @@ function App() {
             path="/skills/"
             element={
               <>
-                <Header />
-                <SkillsForm />
+                <Header title="Skills" content="" />
+                <SkillsForm handleChange={updateInfo} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/edu/" />
-                  <NavButton text="Next: Work History" fill="block" color="red" link="/work/" />
+                  <NavButton text="Finish" fill="block" color="red" link="/work/" />
                 </div>
               </>
             }
           />
         </Routes>
-        {/* <Preview /> */}
+        <Preview info={info} />
       </main>
     </div>
   );
