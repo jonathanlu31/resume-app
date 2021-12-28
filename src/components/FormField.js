@@ -1,10 +1,12 @@
 import React from 'react';
+import typography from '../styles/Type.module.css';
+import styles from '../styles/FormField.module.css';
 
-const FormField = () => {
+const FormField = ({ label, type, placeholder }) => {
   return (
-    <div>
-      <label></label>
-      <input />
+    <div className={styles.fieldGroup}>
+      <label className={typography.labelType}>{label}</label>
+      <input className={styles.inputField} type={type} placeholder={placeholder} />
     </div>
   );
 };

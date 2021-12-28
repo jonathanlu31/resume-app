@@ -10,11 +10,13 @@ import Preview from './components/Preview';
 import Start from './components/Start';
 import NavButton from './components/NavButton';
 
+import layout from './styles/Layout.module.css';
+
 function App() {
   return (
     <div>
       <Navbar />
-      <main>
+      <main className={layout.mainSection}>
         <Routes>
           <Route path="/" element={<Start />} />
           <Route

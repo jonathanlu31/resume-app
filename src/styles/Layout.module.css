@@ -1,0 +1,20 @@
+.couple {
+  display: flex;
+}
+
+.triple {
+  display: flex;
+}
+
+.form {
+}
+
+.mainSection {
+  width: 80%;
+  max-width: 45rem;
+  margin: 3rem auto;
+}
+
+.mb_med {
+  margin-bottom: 0.8rem;
+}

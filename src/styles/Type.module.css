@@ -1,0 +1,15 @@
+.labelType {
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.headerTitle {
+  color: #3983fa;
+  font-weight: 400;
+  margin: 0.5rem 0;
+}
+
+.headerContent {
+  color: #868686;
+  margin: 0;
+}
