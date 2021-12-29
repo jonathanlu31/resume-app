@@ -1,21 +1,70 @@
+/* Sets the font size for the sidebar */
 .sidebar {
   background-color: #003d73;
   color: white;
   display: flex;
   flex-direction: column;
   width: 25%;
-  font-size: 0.8rem;
-  padding-left: 1.25rem;
-  padding-top: 0.5rem;
+  font-size: 0.8em;
+  padding-left: 3%;
+  padding-top: 4%;
 }
 
 .sidebarHeader {
   background-color: #02315c;
+  position: relative;
+  box-sizing: content-box;
+  width: 100%;
+  left: -13%;
+  padding-left: 13%;
+  padding-top: 4%;
+  padding-bottom: 6%;
+  margin: 17% 0 0 0;
+  font-size: 1.2em;
+}
+
+.listGroup {
+  padding: 5% 0;
+}
+
+.main {
+  padding: 2rem 2rem 2rem 1rem;
+  font-size: 0.9em;
+}
+
+.sidebarh4 {
+  margin: 10% 0 3% 0;
+}
+
+.h2 {
+  font-size: 2.5em;
+}
+
+.h3 {
+  color: #003d73;
+  font-size: 1.2em;
+  margin: 2% 0;
+}
+
+.section {
+  display: flex;
+  background-color: white;
+}
+
+.job {
+  composes: textGray from './Type.module.css';
+  font-size: 1.2em;
+  margin-top: 5%;
 }
 
 .active {
+  composes: section;
   width: 80vw;
-  /* height: 80vh; */
+  height: 90vh;
   margin: auto;
-  background-color: white;
+}
+
+.main > hr {
+  color: #868686;
+  opacity: 0.7;
 }

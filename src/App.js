@@ -18,8 +18,36 @@ function App() {
     fname: 'John',
     lname: 'Smith',
     job: 'Underwater basket weaver',
+    city: 'San Diego',
+    state: 'California',
+    zip: 92121,
     phone: '8555555555',
     email: 'johnsmith@gmail.com',
+    work: [
+      {
+        title: 'Senior Sales Associate',
+        company: 'Target',
+        city: 'San Francisco',
+        state: 'California',
+        start: 'March 2021',
+        end: 'Present',
+      },
+      {
+        title: 'Accountant',
+        company: 'Amazon.com, Inc.',
+        city: 'Seattle',
+        state: 'Washington',
+        start: 'July 2019',
+        end: 'Feburary 2020',
+      },
+    ],
+    edu: [
+      {
+        degree: 'Bachelor of Arts',
+        major: 'Computer Science',
+        uni: 'University of California, Berkeley',
+      },
+    ],
   });
 
   const updateInfo = (feature, data) => {
