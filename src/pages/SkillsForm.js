@@ -1,6 +1,6 @@
 import React from 'react';
-import FormField from './FormField';
-import Button from './Button';
+import FormField from '../components/FormField';
+import Button from '../components/Button';
 
 const SkillsForm = () => {
   return (

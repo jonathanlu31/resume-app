@@ -1,7 +1,7 @@
 import React from 'react';
-import FormField from './FormField';
-import FormCheckbox from './FormCheckbox';
-import FormSelect from './FormSelect';
+import FormField from '../components/FormField';
+import FormCheckbox from '../components/FormCheckbox';
+import FormSelect from '../components/FormSelect';
 
 import layout from '../styles/Layout.module.css';
 

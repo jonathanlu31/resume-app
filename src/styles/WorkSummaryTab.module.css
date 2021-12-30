@@ -1,0 +1,21 @@
+.lightBlue {
+  color: #3983fa;
+}
+
+.icons {
+  composes: lightBlue;
+  font-size: 18px;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid lightgray;
+  padding: 1.25rem 0;
+}
+
+.h3 {
+  font-size: 0.9rem;
+  font-weight: 300;
+  flex-basis: 55%;
+}

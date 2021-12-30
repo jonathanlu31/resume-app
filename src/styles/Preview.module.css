@@ -1,3 +1,15 @@
+.section {
+  display: flex;
+  background-color: white;
+}
+
+.active {
+  composes: section;
+  width: 80vw;
+  height: 90vh;
+  margin: auto;
+}
+
 /* Sets the font size for the sidebar */
 .sidebar {
   background-color: #003d73;
@@ -46,22 +58,10 @@
   margin: 2% 0;
 }
 
-.section {
-  display: flex;
-  background-color: white;
-}
-
 .job {
   composes: textGray from './Type.module.css';
   font-size: 1.2em;
   margin-top: 5%;
-}
-
-.active {
-  composes: section;
-  width: 80vw;
-  height: 90vh;
-  margin: auto;
 }
 
 .main > hr {
