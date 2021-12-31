@@ -33,11 +33,7 @@ const Preview = ({ info }) => {
         <hr />
         <h3 className={styles.h3}>Education</h3>
         <hr />
-        <div className={styles.listGroup}>
-          {info.edu.map((school) => (
-            <EduHistory {...school} />
-          ))}
-        </div>
+        <div className={styles.listGroup}>{info.edu.map((school) => school.uni && <EduHistory {...school} key={school.id} />)}</div>
       </div>
     </section>
   );

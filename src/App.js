@@ -63,12 +63,13 @@ function App() {
         degree: 'Bachelor of Arts',
         major: 'Computer Science',
         uni: 'University of California, Berkeley',
+        location: 'Berkeley',
         start: '2020-08-01',
         end: '2024-05-01',
       },
       {
         id: uuidv4(),
-        degree: '',
+        degree: 'null',
         major: '',
         uni: '',
         start: '',
@@ -77,7 +78,7 @@ function App() {
     ],
   });
   const [curr_work_id, setWorkId] = useState(info.work[info.work.length - 1].id);
-  const [curr_edu_id, setEduId] = useState(info.work[info.work.length - 1].id);
+  const [curr_edu_id, setEduId] = useState(info.edu[info.edu.length - 1].id);
 
   const updateInfo = (feature, data) => {
     setInfo({ ...info, [feature]: data });
@@ -183,7 +184,7 @@ function App() {
             element={
               <>
                 <Header title="Education" content="Include your past education, even if you haven't graduated yet." />
-                <EduForm handleChange={updateInfo} curr_id={curr_edu_id} />
+                <EduForm handleChange={updateInfo} curr_id={curr_edu_id} eduList={info.edu} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/expr/" />
                   <NavButton text="Next" fill="block" color="red" link="/eduh/" />
