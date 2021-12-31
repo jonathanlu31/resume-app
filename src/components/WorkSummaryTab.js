@@ -4,9 +4,11 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import styles from '../styles/WorkSummaryTab.module.css';
 import typography from '../styles/Type.module.css';
-import layout from '../styles/Layout.module.css';
+import { useNavigate } from 'react-router-dom';
+import { IconButton } from '@mui/material';
 
-const WorkSummaryTab = ({ title, company, start, end, city, state }) => {
+const WorkSummaryTab = ({ title, company, start, end, city, state, id, switchWork, deleteWork }) => {
+  const navigate = useNavigate();
   return (
     <div className={styles.tab}>
       <h3 className={styles.h3}>
@@ -15,9 +17,20 @@ const WorkSummaryTab = ({ title, company, start, end, city, state }) => {
         </span>{' '}
         | {city}, {state} | {start} - {end}
       </h3>
-      <div className={styles.icons}>
-        <EditIcon fontSize="small" />
-        <DeleteIcon fontSize="small" />
+      <div>
+        <IconButton>
+          <EditIcon
+            className={styles.icons}
+            onClick={() => {
+              switchWork(id);
+              navigate('/work');
+            }}
+            fontSize="small"
+          />
+        </IconButton>
+        <IconButton sx={{ ml: 2 }}>
+          <DeleteIcon onClick={() => deleteWork(id)} className={styles.icons} fontSize="small" />
+        </IconButton>
       </div>
     </div>
   );

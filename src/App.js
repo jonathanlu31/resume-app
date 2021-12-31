@@ -63,6 +63,7 @@ function App() {
       },
     ],
   });
+  const [curr_work_id, setWorkId] = useState(info.work[info.work.length - 1].id);
 
   const updateInfo = (feature, data) => {
     setInfo({ ...info, [feature]: data });
@@ -82,8 +83,16 @@ function App() {
     console.log(info);
   };
 
+  const switchWork = (id) => {
+    setWorkId(id);
+  };
+
+  const deleteWork = (id) => {
+    const newWorkList = info.work.filter((job) => job.id !== id);
+    updateInfo('work', newWorkList);
+  };
+
   // useEffect(() => addWork(), []);
-  const curr_work_id = info.work[info.work.length - 1].id;
 
   return (
     <div>
@@ -122,7 +131,7 @@ function App() {
             element={
               <>
                 <Header title="Work Experience Summary" content="" />
-                <WorkSummary addWork={addWork} workHistory={info.work} />
+                <WorkSummary deleteWork={deleteWork} switchWork={switchWork} addWork={addWork} workHistory={info.work} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/work/" />
                   <NavButton text="Next: Education" fill="block" color="red" link="/edu/" />

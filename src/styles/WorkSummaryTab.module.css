@@ -4,12 +4,12 @@
 
 .icons {
   composes: lightBlue;
-  font-size: 18px;
 }
 
 .tab {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   border: 1px solid lightgray;
   padding: 1.25rem 0;
 }

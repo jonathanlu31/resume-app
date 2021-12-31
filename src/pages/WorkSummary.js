@@ -2,13 +2,13 @@ import React from 'react';
 import WorkSummaryTab from '../components/WorkSummaryTab';
 import Button from '../components/Button';
 
-const WorkSummary = ({ addWork, workHistory }) => {
+const WorkSummary = ({ addWork, workHistory, switchWork, deleteWork }) => {
   return (
     <div>
       {workHistory.map((job) => (
-        <WorkSummaryTab {...job} />
+        <WorkSummaryTab {...job} switchWork={switchWork} deleteWork={deleteWork} />
       ))}
-      <Button text="Add Another Position" color="blue_outline" />
+      <Button addWork={addWork} text="Add Another Position" color="blue_outline" />
     </div>
   );
 };
