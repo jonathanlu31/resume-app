@@ -29,11 +29,7 @@ const Preview = ({ info }) => {
         <hr />
         <h3 className={styles.h3}>Work History</h3>
         <hr />
-        <div className={styles.listGroup}>
-          {info.work.map((job) => (
-            <WorkHistory {...job} />
-          ))}
-        </div>
+        <div className={styles.listGroup}>{info.work.map((job) => job.title && <WorkHistory {...job} />)}</div>
         <hr />
         <h3 className={styles.h3}>Education</h3>
         <hr />
