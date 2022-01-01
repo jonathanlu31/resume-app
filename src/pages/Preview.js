@@ -1,6 +1,6 @@
 import React from 'react';
-import WorkHistory from './WorkHistory';
-import EduHistory from './EduHistory';
+import WorkHistory from '../components/WorkHistory';
+import EduHistory from '../components/EduHistory';
 
 import styles from '../styles/Preview.module.css';
 
@@ -29,7 +29,7 @@ const Preview = ({ info }) => {
         <hr />
         <h3 className={styles.h3}>Work History</h3>
         <hr />
-        <div className={styles.listGroup}>{info.work.map((job) => job.title && <WorkHistory {...job} />)}</div>
+        <div className={styles.listGroup}>{info.work.map((job) => job.title && <WorkHistory {...job} key={job.id} />)}</div>
         <hr />
         <h3 className={styles.h3}>Education</h3>
         <hr />

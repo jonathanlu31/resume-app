@@ -18,18 +18,16 @@ const EduSummaryTab = ({ id, degree, major, uni, switchItem, deleteItem, start, 
         | {uni}, {start} - {end}
       </h3>
       <div>
-        <IconButton>
-          <EditIcon
-            className={styles.icons}
-            onClick={() => {
-              switchItem(id);
-              navigate('/edu');
-            }}
-            fontSize="small"
-          />
+        <IconButton
+          onClick={() => {
+            switchItem(id);
+            navigate('/edu');
+          }}
+        >
+          <EditIcon className={styles.icons} fontSize="small" />
         </IconButton>
-        <IconButton sx={{ ml: 2 }}>
-          <DeleteIcon onClick={() => deleteItem(id)} className={styles.icons} fontSize="small" />
+        <IconButton onClick={() => deleteItem(id)} sx={{ ml: 2 }}>
+          <DeleteIcon className={styles.icons} fontSize="small" />
         </IconButton>
       </div>
     </div>

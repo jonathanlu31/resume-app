@@ -1,13 +1,13 @@
 // import './styles/App.css';
-import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import ContactForm from './pages/ContactForm';
 import Navbar from './components/Navbar';
 import WorkForm from './pages/WorkForm';
 import SkillsForm from './pages/SkillsForm';
 import EduForm from './pages/EduForm';
-import Preview from './components/Preview';
+import Preview from './pages/Preview';
 import Start from './pages/Start';
 import NavButton from './components/NavButton';
 import SummaryPage from './pages/SummaryPage';
@@ -18,7 +18,9 @@ import layout from './styles/Layout.module.css';
 
 import { v4 as uuidv4 } from 'uuid';
 
+//TODO: sort work experience and edu by date
 function App() {
+  const location = useLocation();
   const [info, setInfo] = useState({
     fname: 'John',
     lname: 'Smith',
@@ -76,6 +78,13 @@ function App() {
         end: '',
       },
     ],
+    skills: [
+      {
+        text: '',
+        rating: 0,
+        id: 0,
+      },
+    ],
   });
   const [curr_work_id, setWorkId] = useState(info.work[info.work.length - 1].id);
   const [curr_edu_id, setEduId] = useState(info.edu[info.edu.length - 1].id);
@@ -112,6 +121,16 @@ function App() {
     return newEdu.id;
   };
 
+  const addSkill = (title) => {
+    const newSkill = {
+      id: uuidv4(),
+      text: title,
+      rating: 0,
+    };
+    setInfo({ ...info, skills: [...info.skills, newSkill] });
+    return newSkill.id;
+  };
+
   //TODO: Add warning window when navigating away with empty job description
 
   const switchWork = (id) => {
@@ -130,6 +149,11 @@ function App() {
   const deleteEdu = (id) => {
     const newWorkList = info.work.filter((school) => school.id !== id);
     updateInfo('edu', newWorkList);
+  };
+
+  const deleteSkill = (id) => {
+    const newSkillList = info.skills.filter((skill) => skill.id !== id);
+    updateInfo('skills', newSkillList);
   };
 
   // useEffect(() => addWork(), []);
@@ -210,16 +234,25 @@ function App() {
             element={
               <>
                 <Header title="Skills" content="" />
-                <SkillsForm handleChange={updateInfo} />
+                <SkillsForm handleChange={updateInfo} skills={info.skills} addSkill={addSkill} deleteSkill={deleteSkill} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/edu/" />
-                  <NavButton text="Finish" fill="block" color="red" link="/work/" />
+                  <NavButton text="Finish" fill="block" color="red" link="/fin/" />
                 </div>
               </>
             }
           />
+          <Route
+            path="/fin"
+            element={
+              <>
+                <Preview info={info} />
+                <NavButton text="Back" fill="outline" color="blue" link="/skills/" />
+              </>
+            }
+          />
         </Routes>
-        <Preview info={info} />
+        {location.pathname !== '/fin/' && <Preview info={info} />}
       </main>
     </div>
   );

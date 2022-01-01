@@ -10,6 +10,13 @@
   background-color: #f5f8fa;
 }
 
+.blue_outline_md {
+  composes: blue_outline;
+  width: auto;
+  padding: 0.8rem 2rem;
+  margin-top: 0rem;
+}
+
 .btn {
   display: flex;
   align-items: center;
