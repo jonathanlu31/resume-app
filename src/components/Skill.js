@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Skill = ({ text }) => {
+const Skill = ({ text, rating }) => {
   return (
     <div>
-      <p>{text}</p>
+      <p>
+        {text} {rating}
+      </p>
     </div>
   );
 };

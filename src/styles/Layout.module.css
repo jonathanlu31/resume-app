@@ -26,3 +26,17 @@
 .p_relative {
   position: relative;
 }
+
+.preview {
+  composes: couple;
+  align-items: center;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}

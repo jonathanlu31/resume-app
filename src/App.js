@@ -13,6 +13,7 @@ import NavButton from './components/NavButton';
 import SummaryPage from './pages/SummaryPage';
 import WorkSummaryTab from './components/WorkSummaryTab';
 import EduSummaryTab from './components/EduSummaryTab';
+import Button from './components/Button';
 
 import layout from './styles/Layout.module.css';
 
@@ -21,9 +22,10 @@ import { v4 as uuidv4 } from 'uuid';
 //TODO: sort work experience and edu by date
 //TODO: skills
 //TODO: date for up til present
-//TODO: preview
+//TODO: print
 function App() {
   const location = useLocation();
+  const [previewOpen, setOpen] = useState(false);
   const [info, setInfo] = useState({
     fname: 'John',
     lname: 'Smith',
@@ -83,8 +85,8 @@ function App() {
     ],
     skills: [
       {
-        text: '',
-        rating: 0,
+        text: 'JavaScript',
+        rating: 4,
         id: 0,
       },
     ],
@@ -171,7 +173,7 @@ function App() {
             path="/ctnt"
             element={
               <>
-                <Header title="Contact Info" content="Please enter your contact info" />
+                <Header previewClick={() => setOpen(true)} title="Contact Info" content="Please enter your contact info" />
                 <ContactForm handleChange={updateInfo} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/" />
@@ -184,7 +186,7 @@ function App() {
             path="/work/"
             element={
               <>
-                <Header title="Work Experience" content="Please enter your relevant work experience" />
+                <Header previewClick={() => setOpen(true)} title="Work Experience" content="Please enter your relevant work experience" />
                 <WorkForm workList={info.work} handleChange={updateInfo} curr_id={curr_work_id} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/ctnt/" />
@@ -197,7 +199,7 @@ function App() {
             path="/expr/"
             element={
               <>
-                <Header title="Work Experience Summary" content="" />
+                <Header previewClick={() => setOpen(true)} title="Work Experience Summary" content="" />
                 <SummaryPage deleteItem={deleteWork} switchItem={switchWork} addItem={addWork} itemHistory={info.work} to="/work" displayText="Add Another Position" Component={WorkSummaryTab} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/work/" />
@@ -210,7 +212,7 @@ function App() {
             path="/edu/"
             element={
               <>
-                <Header title="Education" content="Include your past education, even if you haven't graduated yet." />
+                <Header previewClick={() => setOpen(true)} title="Education" content="Include your past education, even if you haven't graduated yet." />
                 <EduForm handleChange={updateInfo} curr_id={curr_edu_id} eduList={info.edu} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/expr/" />
@@ -223,7 +225,7 @@ function App() {
             path="/eduh/"
             element={
               <>
-                <Header title="Education summary" content="" />
+                <Header previewClick={() => setOpen(true)} title="Education summary" content="" />
                 <SummaryPage deleteItem={deleteEdu} switchItem={switchEdu} addItem={addEdu} itemHistory={info.edu} to="/edu" displayText="Add another degree" Component={EduSummaryTab} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/edu/" />
@@ -236,7 +238,7 @@ function App() {
             path="/skills/"
             element={
               <>
-                <Header title="Skills" content="" />
+                <Header previewClick={() => setOpen(true)} title="Skills" content="" />
                 <SkillsForm handleChange={updateInfo} skills={info.skills} addSkill={addSkill} deleteSkill={deleteSkill} />
                 <div className={layout.coupleSpaced}>
                   <NavButton text="Back" fill="outline" color="blue" link="/edu/" />
@@ -249,13 +251,22 @@ function App() {
             path="/fin"
             element={
               <>
-                <Preview info={info} />
-                <NavButton text="Back" fill="outline" color="blue" link="/skills/" />
+                <Preview info={info} status="final" />
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    width: '105%',
+                  }}
+                >
+                  <NavButton text="Back" fill="outline" color="blue" link="/skills/" />
+                  <NavButton text="Generate PDF" fill="block" color="red" link="/fin/" />
+                </div>
               </>
             }
           />
         </Routes>
-        {/* {location.pathname !== '/fin/' && <Preview info={info} />} */}
+        {previewOpen && <Preview status="active" info={info} closePreview={() => setOpen(false)} />}
       </main>
     </div>
   );
