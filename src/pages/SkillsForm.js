@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormField from '../components/FormField';
 import Button from '../components/Button';
 import SkillTab from '../components/SkillTab';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const SkillsForm = ({ skills, handleChange, addSkill, deleteSkill }) => {
   const [text, setText] = useState('');
@@ -18,11 +19,12 @@ const SkillsForm = ({ skills, handleChange, addSkill, deleteSkill }) => {
       <div>
         <FormField label="Add relevant skills" placeholder="Ex: JavaScript" type="text" handleChange={(_, val) => setText(val)} value={text} name="null" />
         <Button
+          icon={<AddCircleIcon fontSize="small" sx={{ mr: 1 }} />}
           onClick={() => {
             addSkill(text);
             setText('');
           }}
-          text="Add"
+          text="Add Skill"
           color="blue_outline_md"
         />
       </div>

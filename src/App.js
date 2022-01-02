@@ -19,6 +19,9 @@ import layout from './styles/Layout.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
 //TODO: sort work experience and edu by date
+//TODO: skills
+//TODO: date for up til present
+//TODO: preview
 function App() {
   const location = useLocation();
   const [info, setInfo] = useState({
@@ -252,7 +255,7 @@ function App() {
             }
           />
         </Routes>
-        {location.pathname !== '/fin/' && <Preview info={info} />}
+        {/* {location.pathname !== '/fin/' && <Preview info={info} />} */}
       </main>
     </div>
   );
