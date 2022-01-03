@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormField from '../components/FormField';
 import FormCheckbox from '../components/FormCheckbox';
 import FormSelect from '../components/FormSelect';
@@ -16,6 +16,8 @@ const EduForm = ({ eduList, handleChange, curr_id }) => {
     handleChange('edu', eduList_new);
   };
 
+  const [noEndDate, setNoEnd] = useState(currEdu.end === 'Present');
+
   return (
     <form>
       <div className={layout.couple}>
@@ -25,9 +27,20 @@ const EduForm = ({ eduList, handleChange, curr_id }) => {
       <FormSelect options={degreeOptions} handleChange={eduUpdate} label="Degree" name="degree" value={currEdu.degree} />
       <div className={`${layout.triple} ${layout.p_relative}`}>
         <FormField handleChange={eduUpdate} type="text" placeholder="e.g. Accountant" label="Field of Study" name="major" value={currEdu.major} />
-        <FormField handleChange={eduUpdate} type="date" placeholder="" label="Graduation Start Date" name="start" value={currEdu.start} />
-        <FormField handleChange={eduUpdate} type="date" placeholder="" label="Graduation End Date" name="end" value={currEdu.end} />
-        <FormCheckbox handleChange={eduUpdate} label="I currently attend here" />
+        <FormField handleChange={eduUpdate} type="month" placeholder="" label="Graduation Start Date" name="start" value={currEdu.start} />
+        <FormField handleChange={eduUpdate} type="month" placeholder="" label="Graduation End Date" name="end" value={currEdu.end} />
+        <FormCheckbox
+          onChange={() => {
+            if (!noEndDate) {
+              eduUpdate('end', 'Present');
+            } else {
+              eduUpdate('end', '');
+            }
+            setNoEnd(!noEndDate);
+          }}
+          value={noEndDate}
+          label="I currently attend here"
+        />
       </div>
     </form>
   );

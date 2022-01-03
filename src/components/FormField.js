@@ -8,10 +8,11 @@ const FormField = ({ label, type, placeholder, handleChange, name, value: init_v
     setValue(e.target.value);
     handleChange(name, e.target.value);
   };
+  const disabled = type === 'month' && init_value === 'Present';
   return (
     <div className={styles.fieldGroup}>
       <label className={typography.labelType}>{label}</label>
-      <input onChange={onInputChange} className={styles.inputField} name={name} type={type} placeholder={placeholder} value={value} />
+      <input disabled={disabled} onChange={onInputChange} className={styles.inputField} name={name} type={type} placeholder={placeholder} value={value} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 // import './styles/App.css';
 import React, { useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import ContactForm from './pages/ContactForm';
 import Navbar from './components/Navbar';
@@ -20,11 +20,10 @@ import layout from './styles/Layout.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
 //TODO: sort work experience and edu by date
-//TODO: skills
 //TODO: date for up til present
+//TODO: Add warning window when navigating away with empty job description
 //TODO: print
 function App() {
-  const location = useLocation();
   const [previewOpen, setOpen] = useState(false);
   const [info, setInfo] = useState({
     fname: 'John',
@@ -135,8 +134,6 @@ function App() {
     setInfo({ ...info, skills: [...info.skills, newSkill] });
     return newSkill.id;
   };
-
-  //TODO: Add warning window when navigating away with empty job description
 
   const switchWork = (id) => {
     setWorkId(id);

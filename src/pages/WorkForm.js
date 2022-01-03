@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormField from '../components/FormField';
 import FormCheckbox from '../components/FormCheckbox';
 
@@ -13,6 +13,8 @@ const WorkForm = ({ workList, handleChange, curr_id }) => {
     handleChange('work', workList_new);
   };
 
+  const [noEndDate, setNoEnd] = useState(curr_job.end === 'Present');
+
   return (
     <form>
       <div className={layout.couple}>
@@ -24,9 +26,20 @@ const WorkForm = ({ workList, handleChange, curr_id }) => {
         <FormField handleChange={workUpdate} name="state" type="text" placeholder="e.g. CA" label="State" value={curr_job.state} />
       </div>
       <div className={`${layout.couple} ${layout.p_relative}`}>
-        <FormField handleChange={workUpdate} name="start" type="date" placeholder="Select" label="Start Date" value={curr_job.start} />
-        <FormField handleChange={workUpdate} name="end" type="date" value={curr_job.end} placeholder="Select" label="End Date" />
-        <FormCheckbox label="I currently work here" />
+        <FormField handleChange={workUpdate} name="start" type="month" placeholder="Select" label="Start Date" value={curr_job.start} />
+        <FormField handleChange={workUpdate} name="end" type="month" value={curr_job.end} placeholder="Select" label="End Date" />
+        <FormCheckbox
+          onChange={() => {
+            if (!noEndDate) {
+              workUpdate('end', 'Present');
+            } else {
+              workUpdate('end', '');
+            }
+            setNoEnd(!noEndDate);
+          }}
+          value={noEndDate}
+          label="I currently work here"
+        />
       </div>
     </form>
   );
