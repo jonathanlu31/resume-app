@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormField from '../components/FormField';
 import FormCheckbox from '../components/FormCheckbox';
 import FormSelect from '../components/FormSelect';
+import { dateSort } from '../utilities';
 
 import layout from '../styles/Layout.module.css';
 
@@ -13,6 +14,7 @@ const EduForm = ({ eduList, handleChange, curr_id }) => {
   const eduUpdate = (name, data) => {
     let jobToUpdate = { ...currEdu, [name]: data };
     const eduList_new = [...eduList.filter((job) => job.id !== curr_id), jobToUpdate];
+    eduList_new.sort(dateSort);
     handleChange('edu', eduList_new);
   };
 

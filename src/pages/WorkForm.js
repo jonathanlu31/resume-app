@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FormField from '../components/FormField';
 import FormCheckbox from '../components/FormCheckbox';
+import { dateSort } from '../utilities';
 
 import layout from '../styles/Layout.module.css';
 
@@ -10,6 +11,7 @@ const WorkForm = ({ workList, handleChange, curr_id }) => {
   const workUpdate = (name, data) => {
     let jobToUpdate = { ...curr_job, [name]: data };
     const workList_new = [...workList.filter((job) => job.id !== curr_id), jobToUpdate];
+    workList_new.sort(dateSort);
     handleChange('work', workList_new);
   };
 
