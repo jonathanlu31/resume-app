@@ -80,7 +80,6 @@ function App() {
         itemStr += item[prop];
       }
     }
-    console.log(itemStr);
     return itemStr.length <= 4;
   };
 
@@ -288,7 +287,7 @@ function App() {
                 <Header previewClick={() => setOpen(true)} title="Skills" content="" />
                 <SkillsForm handleChange={updateInfo} skills={info.skills} addSkill={addSkill} deleteSkill={deleteSkill} />
                 <div className={layout.coupleSpaced}>
-                  <NavButton text="Back" fill="outline" color="blue" link="/edu/" />
+                  <NavButton text="Back" fill="outline" color="blue" link="/eduh/" />
                   <NavButton text="Finish" fill="block" color="red" link="/fin/" />
                 </div>
               </>
