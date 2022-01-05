@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/WorkHistory.module.css';
+import styles from '../styles/History.module.css';
 
 const WorkHistory = ({ title, company, city, state, start, end }) => {
   return (
