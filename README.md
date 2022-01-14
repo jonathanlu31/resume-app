@@ -1,11 +1,11 @@
 # Resume Builder
 
-This is a simple resume builder app with the design based off of [Zety]()
+This is a simple resume builder app with the design based off of [Zety](https://builder.zety.com/resume/select-resume?skin=srz1&templateflow=selectresume)
 
 ### Built With
 
-- [Create React App](https://getbootstrap.com/)
-- [MaterialUI](https://www.typescriptlang.org/)
+- [Create React App](https://create-react-app.dev/)
+- [MaterialUI](https://mui.com/)
 
 ## Usage
 
