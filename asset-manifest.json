@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/resume-app/static/css/main.c7acfc3d.css",
-    "main.js": "/resume-app/static/js/main.403aff6d.js",
+    "main.js": "/resume-app/static/js/main.1da2f4e7.js",
     "static/js/787.17e1d652.chunk.js": "/resume-app/static/js/787.17e1d652.chunk.js",
     "index.html": "/resume-app/index.html",
     "main.c7acfc3d.css.map": "/resume-app/static/css/main.c7acfc3d.css.map",
-    "main.403aff6d.js.map": "/resume-app/static/js/main.403aff6d.js.map",
+    "main.1da2f4e7.js.map": "/resume-app/static/js/main.1da2f4e7.js.map",
     "787.17e1d652.chunk.js.map": "/resume-app/static/js/787.17e1d652.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c7acfc3d.css",
-    "static/js/main.403aff6d.js"
+    "static/js/main.1da2f4e7.js"
   ]
 }
